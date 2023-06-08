@@ -68,33 +68,6 @@ def process(args, file, log, separator, config, image, ocr, locale, web_service,
         destination = config.cfg[_process]['destination']
         log.info("Destination can't be found, using default destination : " + destination)
 
-    # Check if the destination is valid
-    destinations = web_service.retrieve_entities()
-    is_destination_valid = False
-    for dest in destinations['entities']:
-        if destination == dest['entity_id']:
-            is_destination_valid = True
-
-    if type(destination) is not int or not is_destination_valid:
-        for dest in destinations['entities']:
-            if str(destination) == str(dest['id']):
-                destination = dest['entity_id']
-                is_destination_valid = True
-                if args.get('isMail') is not None and args.get('isMail') in [True, 'attachments']:
-                    args['data']['destination'] = destination
-
-    # If destination still not good, try with default destination
-    if type(destination) is not int or not is_destination_valid:
-        if args.get('isMail') is not None and args.get('isMail') in [True, 'attachments']:
-            destination = args['data']['destination']
-        else:
-            destination = config.cfg[_process]['destination']
-        for dest in destinations['entities']:
-            if destination == dest['id']:
-                destination = dest['entity_id']
-                if args.get('isMail') is not None and args.get('isMail') in [True, 'attachments']:
-                    args['data']['destination'] = destination
-
     if args.get('isMail') is not None and args.get('isMail') is True:
         if args['isForm']:
             log.info('Start searching form into e-mail')
