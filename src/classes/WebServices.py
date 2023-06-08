@@ -102,10 +102,13 @@ class WebServices:
             subject = _process['subject']
 
         data = {
+            'encodedFile': base64.b64encode(file_content).decode('utf-8'),
+            'table': 'res_letterbox',
+            'coll': 'letterbox_coll',
+            'fileFormat': 'pdf',
+            'status': _process['status'],
             'data': {
-                'encodedFile': base64.b64encode(file_content).decode('utf-8'),
                 'priority': _process['priority'],
-                'status': _process['status'],
                 'chrono': True if _process['generate_chrono'] == 'True' else '',
                 'type_id': _process['doctype'],
                 'format': _process['format'],
