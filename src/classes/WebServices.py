@@ -112,6 +112,7 @@ class WebServices:
                 'chrono': True if _process['generate_chrono'] == 'True' else '',
                 'type_id': _process['doctype'],
                 'format': _process['format'],
+
                 'category_id': _process['category_id'],
                 'typist': _process['typist'],
                 'subject': subject,
