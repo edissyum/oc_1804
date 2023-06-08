@@ -1,0 +1,14 @@
+bs4
+msal
+pypdf
+kuyruk
+pyzbar
+ocrmypdf
+holidays
+requests
+pdf2image
+tnefparse
+imap-tools
+pytesseract
+configparser
+opencv-python

@@ -1,0 +1,89 @@
+{
+    "FIELDS": {
+        "CONTACT": {
+            "table": "contacts",
+            "data": {
+                "lastname": {
+                    "regex": "Nom\\s*:\\s*(.+)",
+                    "column": "lastname"
+                },
+                "firstname": {
+                    "regex": "Prenom\\s*:\\s*(.+)",
+                    "column": "firstname"
+                },
+                "email": {
+                    "regex": "Email\\s*:\\s*(.+)",
+                    "column": "email"
+                },
+                "phone": {
+                    "regex": "Telephone\\s*:\\s*(.+)",
+                    "column": "phone"
+                },
+                "address_street": {
+                    "regex": "Adresse\\s:\\s(.+)",
+                    "column": "addressStreet"
+                },
+                "address_postcode": {
+                    "regex": "Code postal\\s:\\s(.+)",
+                    "column": "addressPostcode"
+                },
+                "address_town": {
+                    "regex": "Ville\\s:\\s(.+)",
+                    "column": "addressTown"
+                },
+                "address_country": {
+                    "regex": "Pays\\s:\\s(.+)",
+                    "column": "addressCountry"
+                },
+                "civility": {
+                    "regex": "Civilité\\s:\\s(.+)",
+                    "column": "civility",
+                    "correspondance_table": {
+                        "Monsieur": 1,
+                        "Madame": 2,
+                        "Mademoiselle": 3,
+                        "Messieurs": 4,
+                        "Mesdames": 5,
+                        "Mesdemoiselles": 6
+                    }
+                }
+            }
+        },
+        "LETTERBOX": {
+            "table": "res_letterbox",
+            "data": [
+                {
+                    "regex": "Objet\\s*:\\s*(.+)",
+                    "column": "subject"
+                },
+                {
+                    "regex": "Précisions\\s*:\\s*(.+)",
+                    "column": "custom",
+                    "mapping": [
+                        {
+                            "isCustom": "True",
+                            "isAddress": "False",
+                            "column": "12"
+                        }
+                    ]
+                },
+                {
+                    "regex": "Lieu d’intervention\\s*:\\s*(.+)",
+                    "column": "custom",
+                    "mapping": [
+                        {
+                            "isCustom": "True",
+                            "isAddress": "True",
+                            "column": "2"
+                        },
+                        {
+                            "isCustom": "True",
+                            "isAddress": "True",
+                            "column": "2"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,125 @@
+[GLOBAL]
+# Use ${GLOBAL:projectPath} to specify once for all the path of the project
+# nbThtreads is use to specify how many files will be processed at the same time when OCR pdf
+nbThreads           = 4
+resolution          = 300
+compressionQuality  = 100
+# Used to fix potential OCR error into mail detection
+sanitizeStr         = {}\[\]()!?§&é~èàç
+projectPath         = /opt/mem/opencapture
+tmpPath             = ${GLOBAL:projectPath}/data/tmp/
+errorPath           = ${GLOBAL:projectPath}/data/error/
+logFile             = ${GLOBAL:projectPath}/data/log/OCForMEM.log
+formPath            = ${GLOBAL:projectPath}/src/config/form.json
+# Time in seconds before stopping the Webservices call
+timeout             = 30
+# True or False
+disableLad          = False
+
+[LOCALE]
+# fr_FR or en_EN by default
+locale              = fr_FR
+# fra or eng by default
+localeOcr           = fra
+localeDatePath      = ${GLOBAL:projectPath}/src/locale/
+
+[SEPARATOR_QR]
+# C128 or QR_CODE
+separationType      = QR_CODE
+# True or False
+exportPdfa          = False
+outputPdfPath       = ${GLOBAL:projectPath}/data/exported_pdf/
+outputPdfaPath      = ${GLOBAL:projectPath}/data/exported_pdfa/
+tmpPath             = /tmp/
+# _ or - for exemple
+divider             = _
+# Enable blank page removal
+removeBlankPage     = True
+# Recognition threshold
+blobsratio          = 1E-6
+
+[OCForMEM]
+# Dont forget to add the /rest at the end of the URL (Link to WS)
+host                = http://localhost/maarch/rest/
+user                =
+password            =
+processAvailable    = incoming,outgoing,reconciliation_default,reconciliation_found
+defaultProcess      = incoming
+# Delta between date found and today date, in days
+# -1 to disable
+timeDelta           = 62
+# True or False
+upperCaseSubject    = False
+# Path to the .crt file
+certPath            =
+
+# !!!! IMPORTANT !!!!
+# The process name have to be LOWERCASE
+
+[OCForMEM_incoming]
+status              = INIT
+doctype             = 103
+typist              = bblier
+priority            = poiuytre1357nbvc
+format              = pdf
+category_id         = incoming
+# Please use entity id (integer) instead of entity_id (13 instead of COU for example)
+destination         = COU
+# True or False
+separator_qr        = False
+generate_chrono     = True
+subject             =
+chronoRegex         = 20(1|2|3)[0-9]{1}A/\d{5}
+
+[OCForMEM_outgoing]
+status              = INIT
+doctype             = 1202
+typist              = bblier
+priority            = poiuytre1357nbvc
+format              = pdf
+category_id         = outgoing
+# Please use entity id (integer) instead of entity_id (13 instead of COU for example)
+destination         = 13
+# True or False
+separator_qr        = False
+generate_chrono     = True
+subject             =
+chronoRegex         = 20(1|2|3)[0-9]{1}D/\d{5}
+
+[OCForMEM_reconciliation_default]
+status              = ATTREC
+doctype             = 1202
+typist              = bblier
+priority            = poiuytre1357nbvc
+format              = pdf
+category_id            = 5
+# Please use entity id (integer) instead of entity_id (13 instead of COU for example)
+destination         = 13
+reconciliation      =
+# True or False
+separator_qr        = False
+generate_chrono     = True
+subject             =
+chronoRegex         = 20(1|2|3)[0-9]{1}D/\d{5}
+
+[OCForMEM_reconciliation_found]
+is_attachment       = True
+attachment_type     = signed_response
+status              = A_TRA
+doctype             =
+typist              =
+priority            =
+format              = pdf
+category_id            =
+destination         =
+reconciliation      =
+separator_qr        = False
+generate_chrono     = False
+subject             =
+
+[REATTACH_DOCUMENT]
+active              = True
+action              =
+group               =
+basket              =
+status              = EENV

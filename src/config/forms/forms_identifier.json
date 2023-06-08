@@ -1,0 +1,12 @@
+{
+    "Formulaire_1": {
+        "keyword_subject": "Message en provenance du site morbihan.fr",
+        "model_id": 6,
+        "status": "ATTSVE",
+        "destination": "COU",
+        "doctype": "1206",
+        "priority": "rmvhak0bb0bhti6f",
+        "custom_fields": {},
+        "json_file": "example_form.json"
+    }
+}

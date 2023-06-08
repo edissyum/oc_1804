@@ -1,0 +1,57 @@
+{
+    "FIELDS": {
+        "CONTACT": {
+            "table": "contacts",
+            "data": {
+                "lastname": {
+                    "regex": "Nom\\s*(.+)",
+                    "column": "lastname"
+                },
+                "firstname": {
+                    "regex": "Prénom\\s*(.+)",
+                    "column": "firstname"
+                },
+                "email": {
+                    "regex": "Courriel\\s*(.+)",
+                    "column": "email"
+                },
+                "phone": {
+                    "regex": "Téléphone\\s*(.+)",
+                    "column": "phone"
+                },
+                "Adresse": {
+                    "regex": "Adresse\\s*(.+)",
+                    "column": "address_street"
+                },
+                "address_postcode": {
+                    "regex": "Code postal\\s*(.+)",
+                    "column": "address_postcode"
+                },
+                "address_town": {
+                    "regex": "Ville\\s*(.+)",
+                    "column": "address_town"
+                }
+            }
+        },
+        "LETTERBOX": {
+            "table": "res_letterbox",
+            "data": [
+                {
+                    "regex": "Objet\\s*(.+)",
+                    "column": "subject"
+                },
+                {
+                    "regex": "Thème\\s*(.+)",
+                    "column": "custom",
+                    "mapping": [
+                        {
+                            "isCustom": "True",
+                            "isAddress": "False",
+                            "column": "2"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

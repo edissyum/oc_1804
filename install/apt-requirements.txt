@@ -1,0 +1,17 @@
+jq
+qpdf
+crudini
+python3
+libxml2
+pngquant
+zbar-tools
+pkg-config
+imagemagick
+python3-pip
+python3-venv
+python3-lxml
+poppler-utils
+rabbitmq-server
+libgl1-mesa-glx
+libtesseract-dev
+libleptonica-dev
