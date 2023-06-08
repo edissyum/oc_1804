@@ -90,7 +90,7 @@ class WebServices:
         contact = {}
 
         if not date:
-            date = datetime.today()
+            date = str(datetime.today())
 
         if not subject:
             subject = ''
