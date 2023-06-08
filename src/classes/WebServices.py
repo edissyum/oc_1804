@@ -108,10 +108,11 @@ class WebServices:
             'fileFormat': 'pdf',
             'status': _process['status'],
             'data': {
-                'type_id': _process['doctype'],
-                'typist': _process['typist'],
-                'destination': destination,
-                'doc_date': date
+                {'column': 'subject', 'value': subject},
+                {'column': 'type_id', 'value': _process['doctype']},
+                {'column': 'typist', 'value': _process['typist']},
+                {'column': 'destination', 'value': destination},
+                {'column': 'doc_date', 'value': date}
             }
         }
 
