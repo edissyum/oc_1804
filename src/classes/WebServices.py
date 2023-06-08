@@ -117,7 +117,7 @@ class WebServices:
         }
 
         try:
-            res = requests.post(self.baseUrl + 'resources', auth=self.auth, data=json.dumps(data), headers={'Connection': 'close', 'Content-Type': 'application/json'}, timeout=self.timeout, verify=self.cert)
+            res = requests.post(self.baseUrl + 'res', auth=self.auth, data=json.dumps(data), headers={'Connection': 'close', 'Content-Type': 'application/json'}, timeout=self.timeout, verify=self.cert)
 
             if res.status_code != 200:
                 self.Log.error('(' + str(res.status_code) + ') InsertIntoMEMError : ' + str(res.text))
