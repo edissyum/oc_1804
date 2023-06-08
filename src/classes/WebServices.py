@@ -109,13 +109,8 @@ class WebServices:
             'status': _process['status'],
             'data': {
                 'priority': _process['priority'],
-                'chrono': True if _process['generate_chrono'] == 'True' else '',
                 'type_id': _process['doctype'],
-                'format': _process['format'],
-
-                'category_id': _process['category_id'],
                 'typist': _process['typist'],
-                'subject': subject,
                 'destination': destination,
                 'doc_date': date
             }
