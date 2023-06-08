@@ -108,7 +108,6 @@ class WebServices:
             'fileFormat': 'pdf',
             'status': _process['status'],
             'data': {
-                'priority': _process['priority'],
                 'type_id': _process['doctype'],
                 'typist': _process['typist'],
                 'destination': destination,
