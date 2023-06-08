@@ -104,7 +104,7 @@ class WebServices:
         data = {
             'encodedFile': base64.b64encode(file_content).decode('utf-8'),
             'table': 'res_letterbox',
-            'coll': 'letterbox_coll',
+            'collId': 'letterbox_coll',
             'fileFormat': 'pdf',
             'status': _process['status'],
             'data': {
@@ -116,7 +116,6 @@ class WebServices:
                 'typist': _process['typist'],
                 'subject': subject,
                 'destination': destination,
-                'senders': contact,
                 'doc_date': date
             }
         }
