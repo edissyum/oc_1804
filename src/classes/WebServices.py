@@ -102,18 +102,20 @@ class WebServices:
             subject = _process['subject']
 
         data = {
-            'encodedFile': base64.b64encode(file_content).decode('utf-8'),
-            'priority': _process['priority'],
-            'status': _process['status'],
-            'chrono': True if _process['generate_chrono'] == 'True' else '',
-            'type_id': _process['doctype'],
-            'format': _process['format'],
-            'category_id': _process['category_id'],
-            'typist': _process['typist'],
-            'subject': subject,
-            'destination': destination,
-            'senders': contact,
-            'doc_date': date
+            'data': {
+                'encodedFile': base64.b64encode(file_content).decode('utf-8'),
+                'priority': _process['priority'],
+                'status': _process['status'],
+                'chrono': True if _process['generate_chrono'] == 'True' else '',
+                'type_id': _process['doctype'],
+                'format': _process['format'],
+                'category_id': _process['category_id'],
+                'typist': _process['typist'],
+                'subject': subject,
+                'destination': destination,
+                'senders': contact,
+                'doc_date': date
+            }
         }
 
         try:
