@@ -110,6 +110,7 @@ class WebServices:
             'data': [
                 {'column': 'subject', 'value': subject},
                 {'column': 'type_id', 'value': _process['doctype']},
+                {'column': 'priority', 'value': _process['priority']},
                 {'column': 'typist', 'value': _process['typist']},
                 {'column': 'destination', 'value': destination},
                 {'column': 'doc_date', 'value': date}
@@ -123,6 +124,16 @@ class WebServices:
                 self.Log.error('(' + str(res.status_code) + ') InsertIntoMEMError : ' + str(res.text))
                 return False, str(res.text)
             else:
+                data = {
+                    'resId': json.loads(res.text)['resId'],
+                    'table': 'mlb_coll_ext',
+                    'resTable': 'res_letterbox',
+                    'data': [
+                        {'column': 'category_id', 'value': _process['category_id']},
+                        {'column': 'alt_identifier', 'value': None}
+                    ]
+                }
+                resExt = requests.post(self.baseUrl + 'resExt', auth=self.auth, data=json.dumps(data), headers={'Connection': 'close', 'Content-Type': 'application/json'}, timeout=self.timeout, verify=self.cert)
                 return res.text
         except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
             self.Log.error('InsertIntoMEMError : ' + str(e))
